@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity{
     private ArrayList<Carousel> listaCaroucel;
     private VideoView vv_video;
     private ProgressBar pb_barra;
+    private RecyclerView rv_recycler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,19 +32,24 @@ public class MainActivity extends AppCompatActivity{
 
         vv_video = findViewById(R.id.vv_video);
         pb_barra = findViewById(R.id.pb_barra);
-        RecyclerView rv_recycler = findViewById(R.id.rv_lista_main);
+        rv_recycler = findViewById(R.id.rv_lista_main);
         rv_recycler.setLayoutManager(new LinearLayoutManager(
                 this, LinearLayoutManager.VERTICAL,false));
         listaCaroucel = new ArrayList<>();
+
+        IntentFilter filtro = new IntentFilter("com.pruebaToolbox.video");
+        BroadcastReceiver recibidor = new SolicitudDeReproducir();
+        registerReceiver(recibidor, filtro);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         cargarDatos();
 
         AdaptadorRecycler adaptadorRecycler = new AdaptadorRecycler(listaCaroucel);
         rv_recycler.setAdapter(adaptadorRecycler);
-
-        IntentFilter filtro = new IntentFilter("com.pruebaToolbox.video");
-        BroadcastReceiver recibidor = new SolicitudDeReproducir();
-        registerReceiver(recibidor, filtro);
     }
 
     private void cargarDatos(){
@@ -155,6 +161,7 @@ public class MainActivity extends AppCompatActivity{
             }
             else {
                 vv_video.setVisibility(View.GONE);
+                pb_barra.setVisibility(View.GONE);
                 Toast.makeText(getApplicationContext(), "Video no disponible", Toast.LENGTH_LONG).show();
             }
         }
