@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -11,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView rv_thumb;
     private RecyclerView rv_poster;
+    private TextView tv_titulo_thumb;
+    private TextView tv_titulo_poster;
 
     private ArrayList<Carousel> listaCaroucel;
 
@@ -19,8 +22,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        rv_thumb    = findViewById(R.id.rv_recycler_thumb);
-        rv_poster   = findViewById(R.id.rv_recycler_poster);
+        rv_thumb        = findViewById(R.id.rv_recycler_thumb);
+        rv_poster       = findViewById(R.id.rv_recycler_poster);
+        tv_titulo_thumb = findViewById(R.id.tv_titulo_thumb);
+        tv_titulo_poster= findViewById(R.id.tv_titulo_poster);
+
         rv_thumb.setLayoutManager(new LinearLayoutManager(
                 this, LinearLayoutManager.HORIZONTAL, false));
         rv_poster.setLayoutManager(new LinearLayoutManager(
@@ -29,9 +35,12 @@ public class MainActivity extends AppCompatActivity {
         cargarDatos();
 
         AdaptadorThumb adaptadorThumb = new AdaptadorThumb(listaCaroucel.get(0).getItems());
-        rv_thumb.setAdapter(adaptadorThumb);
         AdaptadorPoster adaptadorPoster = new AdaptadorPoster(listaCaroucel.get(1).getItems());
+        rv_thumb.setAdapter(adaptadorThumb);
         rv_poster.setAdapter(adaptadorPoster);
+
+        tv_titulo_thumb.setText(listaCaroucel.get(0).getTitle());
+        tv_titulo_poster.setText(listaCaroucel.get(1).getTitle());
     }
 
     private void cargarDatos(){
