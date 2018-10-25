@@ -7,40 +7,11 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tv_titulo_thumb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/fox_contenido_basico"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textStyle="bold"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        />
-
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_recycler_thumb"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </android.support.v7.widget.RecyclerView>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-    
-    <TextView
-        android:id="@+id/tv_titulo_poster"
+        android:id="@+id/rv_lista_main"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/fox_play"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textStyle="bold"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_recycler_poster"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
     </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>
