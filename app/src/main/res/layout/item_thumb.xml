@@ -12,7 +12,6 @@
         android:id="@+id/iv_img_thumb"
         android:layout_width="128dp"
         android:layout_height="192dp"
-        android:src="@color/colorPrimaryDark"
         tools:ignore="ContentDescription,HardcodedText" />
 
     <TextView
