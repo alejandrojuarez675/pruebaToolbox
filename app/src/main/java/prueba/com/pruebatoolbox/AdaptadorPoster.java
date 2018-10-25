@@ -38,6 +38,8 @@ public class AdaptadorPoster extends RecyclerView.Adapter<AdaptadorPoster.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolderPoster viewHolderPoster, int i) {
         viewHolderPoster.tv_text.setText(items.get(i).getTitle());
+        new DescargaDeImagen((ImageView) viewHolderPoster.iv_img.findViewById(R.id.iv_img_poster))
+                .execute(items.get(i).getUrl());
     }
 
     @Override
@@ -45,12 +47,12 @@ public class AdaptadorPoster extends RecyclerView.Adapter<AdaptadorPoster.ViewHo
         return items.size();
     }
 
-    public class ViewHolderPoster extends RecyclerView.ViewHolder {
+    class ViewHolderPoster extends RecyclerView.ViewHolder {
 
         ImageView iv_img;
         TextView tv_text;
 
-        public ViewHolderPoster(@NonNull View itemView) {
+        ViewHolderPoster(@NonNull View itemView) {
             super(itemView);
             iv_img  = itemView.findViewById(R.id.iv_img_poster);
             tv_text = itemView.findViewById(R.id.tv_text_poster);

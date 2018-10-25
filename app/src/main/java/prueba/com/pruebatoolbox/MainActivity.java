@@ -47,30 +47,30 @@ public class MainActivity extends AppCompatActivity {
         listaCaroucel = new ArrayList<>();
         listaCaroucel.add(new Carousel("Carousel Thumb", "thumb"));
         listaCaroucel.get(0).addItem(
-                new Item("La playa","http://placeimg.com/640/480/any",
+                new Item("La playa","http://placeimg.com/320/480/any",
                         "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
         listaCaroucel.get(0).addItem(
-                new Item("Peligro en Bangkok","http://placeimg.com/640/480/any",
+                new Item("Peligro en Bangkok","http://placeimg.com/320/480/any",
                         "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
         listaCaroucel.get(0).addItem(
-                new Item("Todas contra John","http://placeimg.com/640/480/any",
+                new Item("Todas contra John","http://placeimg.com/320/480/any",
                         "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
         listaCaroucel.get(0).addItem(
-                new Item("Quisiera ser millonario","http://placeimg.com/640/480/any",
+                new Item("Quisiera ser millonario","http://placeimg.com/320/480/any",
                         "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
 
         listaCaroucel.add(new Carousel("Carousel Poster", "poster"));
         listaCaroucel.get(1).addItem(
-                new Item("La playa","http://placeimg.com/320/480/any",
+                new Item("La playa","http://placeimg.com/640/480/any",
                 "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
         listaCaroucel.get(1).addItem(
-                new Item("Peligro en Bangkok","http://placeimg.com/320/480/any",
+                new Item("Peligro en Bangkok","http://placeimg.com/640/480/any",
                         "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
         listaCaroucel.get(1).addItem(
-                new Item("Todas contra John","http://placeimg.com/320/480/any",
+                new Item("Todas contra John","http://placeimg.com/640/480/any",
                         "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
         listaCaroucel.get(1).addItem(
-                new Item("Quisiera ser millonario","http://placeimg.com/320/480/any",
+                new Item("Quisiera ser millonario","http://placeimg.com/640/480/any",
                         "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
     }
 }

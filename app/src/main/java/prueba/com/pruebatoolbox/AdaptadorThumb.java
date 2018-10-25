@@ -38,6 +38,8 @@ public class AdaptadorThumb extends RecyclerView.Adapter<AdaptadorThumb.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolderThumb viewHolderThumb, int i) {
         viewHolderThumb.tv_text.setText(items.get(i).getTitle());
+        new DescargaDeImagen((ImageView) viewHolderThumb.iv_img.findViewById(R.id.iv_img_thumb))
+                .execute(items.get(i).getUrl());
     }
 
     @Override
@@ -45,12 +47,12 @@ public class AdaptadorThumb extends RecyclerView.Adapter<AdaptadorThumb.ViewHold
         return items.size();
     }
 
-    public class ViewHolderThumb extends RecyclerView.ViewHolder {
+    class ViewHolderThumb extends RecyclerView.ViewHolder {
 
         ImageView iv_img;
         TextView tv_text;
 
-        public ViewHolderThumb(@NonNull View itemView) {
+        ViewHolderThumb(@NonNull View itemView) {
             super(itemView);
             iv_img  = itemView.findViewById(R.id.iv_img_thumb);
             tv_text = itemView.findViewById(R.id.tv_text_thumb);
