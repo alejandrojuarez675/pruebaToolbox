@@ -1,6 +1,8 @@
 package prueba.com.pruebatoolbox;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,6 +20,7 @@ public class AdaptadorThumb extends RecyclerView.Adapter<AdaptadorThumb.ViewHold
     }
 
     private ArrayList<Item> items;
+    private Context mContex;
 
     public ArrayList<Item> getItems() {
         return items;
@@ -32,14 +35,24 @@ public class AdaptadorThumb extends RecyclerView.Adapter<AdaptadorThumb.ViewHold
     public ViewHolderThumb onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         @SuppressLint("InflateParams") View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.item_thumb, null, false);
+        mContex = viewGroup.getContext();
         return new ViewHolderThumb(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolderThumb viewHolderThumb, int i) {
+    public void onBindViewHolder(@NonNull final ViewHolderThumb viewHolderThumb, final int i) {
         viewHolderThumb.tv_text.setText(items.get(i).getTitle());
         new DescargaDeImagen((ImageView) viewHolderThumb.iv_img.findViewById(R.id.iv_img_thumb))
                 .execute(items.get(i).getUrl());
+        viewHolderThumb.iv_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setAction("com.pruebaToolbox.video");
+                intent.putExtra("video", items.get(i).getVideo());
+                mContex.sendBroadcast(intent);
+            }
+        });
     }
 
     @Override
