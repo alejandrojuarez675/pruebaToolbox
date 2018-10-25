@@ -9,7 +9,24 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class AdaptadorPoster extends RecyclerView.Adapter<AdaptadorPoster.ViewHolderPoster> {
+
+    public AdaptadorPoster(ArrayList<Item> items) {
+        this.items = items;
+    }
+
+    private ArrayList<Item> items;
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
+    }
+
     @NonNull
     @Override
     public ViewHolderPoster onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -20,12 +37,12 @@ public class AdaptadorPoster extends RecyclerView.Adapter<AdaptadorPoster.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderPoster viewHolderPoster, int i) {
-
+        viewHolderPoster.tv_text.setText(items.get(i).getTitle());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return items.size();
     }
 
     public class ViewHolderPoster extends RecyclerView.ViewHolder {

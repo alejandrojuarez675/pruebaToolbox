@@ -2,8 +2,10 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
     android:orientation="vertical"
     tools:ignore="UseCompoundDrawables">
 
@@ -18,7 +20,7 @@
         android:id="@+id/tv_text_poster"
         android:text="@string/n_a"
         android:layout_width="128dp"
-        android:layout_height="wrap_content"
+        android:layout_height="10dp"
         android:textSize="8sp"
         android:gravity="center"
         android:background="@android:color/darker_gray"

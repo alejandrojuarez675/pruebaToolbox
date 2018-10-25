@@ -16,11 +16,11 @@
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         />
 
-    <view class="android.support.v7.app.AlertController$RecycleListView"
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_recycler_thumb"
         android:layout_width="match_parent"
-        android:layout_height="192dp">
-    </view>
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
 
     <Space
         android:layout_width="match_parent"
@@ -35,10 +35,10 @@
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         />
 
-    <view class="android.support.v7.app.AlertController$RecycleListView"
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_recycler_poster"
         android:layout_width="match_parent"
-        android:layout_height="96dp">
-    </view>
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>
