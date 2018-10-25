@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView rv_recycler = findViewById(R.id.rv_lista_main);
         rv_recycler.setLayoutManager(new LinearLayoutManager(
                 this, LinearLayoutManager.VERTICAL,false));
+        listaCaroucel = new ArrayList<>();
 
         cargarDatos();
 
@@ -27,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void cargarDatos(){
-        listaCaroucel = new ArrayList<>();
+        listaCaroucel.clear();
+
         listaCaroucel.add(new Carousel("Carousel Thumb", "thumb"));
         listaCaroucel.get(0).addItem(
                 new Item("La playa",
