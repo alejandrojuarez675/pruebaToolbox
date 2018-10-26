@@ -17,12 +17,18 @@
             android:layout_height="wrap_content"
             android:background="@android:color/black">
 
-            <VideoView
-                android:id="@+id/vv_video"
-                android:layout_width="match_parent"
+            <FrameLayout
+                android:layout_width="wrap_content"
                 android:layout_height="250dp"
-                android:layout_centerInParent="true"
-                android:visibility="gone"/>
+                android:layout_centerInParent="true">
+
+                <VideoView
+                    android:id="@+id/vv_video"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"/>
+
+            </FrameLayout>
 
             <ProgressBar
                 android:id="@+id/pb_barra"
