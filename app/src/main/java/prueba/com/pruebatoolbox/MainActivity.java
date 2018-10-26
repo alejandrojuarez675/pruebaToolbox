@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -57,8 +58,17 @@ public class MainActivity extends AppCompatActivity{
         vv_video.setVisibility(View.VISIBLE);
         vv_video.setMediaController(new MediaController(this));
         vv_video.setVideoURI(uri);
+        Handler handlerTimeoutVideo = new Handler();
+        handlerTimeoutVideo.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (!vv_video.isPlaying()){
+                    vv_video.setVisibility(View.GONE);
+                    pb_barra.setVisibility(View.GONE);
+                }
+            }
+        },50000); // timeout de descarga
         vv_video.start();
-
         pb_barra.setVisibility(View.VISIBLE);
         vv_video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
