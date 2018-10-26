@@ -15,20 +15,12 @@ import java.util.ArrayList;
 
 public class AdaptadorThumb extends RecyclerView.Adapter<AdaptadorThumb.ViewHolderThumb> {
 
-    public AdaptadorThumb(ArrayList<Item> items) {
+    AdaptadorThumb(ArrayList<Item> items) {
         this.items = items;
     }
 
     private ArrayList<Item> items;
     private Context mContex;
-
-    public ArrayList<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(ArrayList<Item> items) {
-        this.items = items;
-    }
 
     @NonNull
     @Override
@@ -40,7 +32,7 @@ public class AdaptadorThumb extends RecyclerView.Adapter<AdaptadorThumb.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolderThumb viewHolderThumb, final int i) {
+    public void onBindViewHolder(@NonNull final ViewHolderThumb viewHolderThumb, @SuppressLint("RecyclerView") final int i) {
         viewHolderThumb.tv_text.setText(items.get(i).getTitle());
         new DescargaDeImagen((ImageView) viewHolderThumb.iv_img.findViewById(R.id.iv_img_thumb))
                 .execute(items.get(i).getUrl());

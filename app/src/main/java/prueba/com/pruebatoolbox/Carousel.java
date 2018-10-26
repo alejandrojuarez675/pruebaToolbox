@@ -8,7 +8,7 @@ public class Carousel {
     private String type;
     private ArrayList<Item> items;
 
-    public Carousel(String title, String type) {
+    Carousel(String title, String type) {
         this.title = title;
         this.type = type;
         items = new ArrayList<>();
@@ -38,7 +38,4 @@ public class Carousel {
         return items;
     }
 
-    public void setItems(ArrayList<Item> items) {
-        this.items = items;
-    }
 }

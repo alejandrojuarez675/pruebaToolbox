@@ -8,6 +8,11 @@ import java.util.ArrayList;
 
 public class InterpretadorConsultaApi {
 
+    /**
+     * Metodo que interpreta Jsons con lista de carouseles
+     * @param jsonArray arreglo de json que contiene la lista de carouseles a mostrar
+     * @return lista de carouseles en un array list
+     */
     public static ArrayList<Carousel> jsonToListaCarouseles(JSONArray jsonArray){
         JSONObject jsonCarousel;
         ArrayList<Carousel> lista = new ArrayList<>();

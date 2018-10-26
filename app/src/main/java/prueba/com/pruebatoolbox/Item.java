@@ -6,13 +6,7 @@ public class Item {
     private String url;
     private String video;
 
-    public Item() {
-        title   = "";
-        url     = "";
-        video   = "";
-    }
-
-    public Item(String title, String url, String video) {
+    Item(String title, String url, String video) {
         this.title = title;
         this.url = url;
         this.video = video;
@@ -30,15 +24,8 @@ public class Item {
         return url;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
     public String getVideo() {
         return video;
     }
 
-    public void setVideo(String video) {
-        this.video = video;
-    }
 }

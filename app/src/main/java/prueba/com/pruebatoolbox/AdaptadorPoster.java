@@ -15,20 +15,12 @@ import java.util.ArrayList;
 
 public class AdaptadorPoster extends RecyclerView.Adapter<AdaptadorPoster.ViewHolderPoster> {
 
-    public AdaptadorPoster(ArrayList<Item> items) {
+    AdaptadorPoster(ArrayList<Item> items) {
         this.items = items;
     }
 
     private ArrayList<Item> items;
     private Context mContex;
-
-    public ArrayList<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(ArrayList<Item> items) {
-        this.items = items;
-    }
 
     @NonNull
     @Override
@@ -40,7 +32,7 @@ public class AdaptadorPoster extends RecyclerView.Adapter<AdaptadorPoster.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolderPoster viewHolderPoster, final int i) {
+    public void onBindViewHolder(@NonNull ViewHolderPoster viewHolderPoster, @SuppressLint("RecyclerView") final int i) {
         viewHolderPoster.tv_text.setText(items.get(i).getTitle());
         new DescargaDeImagen((ImageView) viewHolderPoster.iv_img.findViewById(R.id.iv_img_poster))
                 .execute(items.get(i).getUrl());

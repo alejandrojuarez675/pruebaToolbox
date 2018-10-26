@@ -15,15 +15,7 @@ public class AdaptadorRecycler extends RecyclerView.Adapter<AdaptadorRecycler.Vi
 
     private ArrayList<Carousel> listCarouseles;
 
-    public AdaptadorRecycler(ArrayList<Carousel> listCarouseles) {
-        this.listCarouseles = listCarouseles;
-    }
-
-    public ArrayList<Carousel> getListCarouseles() {
-        return listCarouseles;
-    }
-
-    public void setListCarouseles(ArrayList<Carousel> listCarouseles) {
+    AdaptadorRecycler(ArrayList<Carousel> listCarouseles) {
         this.listCarouseles = listCarouseles;
     }
 
