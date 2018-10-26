@@ -1,5 +1,8 @@
 package prueba.com.pruebatoolbox;
 
+/**
+ * Clase de modelado de datos
+ */
 public class Item {
 
     private String title;

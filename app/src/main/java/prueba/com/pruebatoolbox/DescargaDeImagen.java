@@ -8,6 +8,10 @@ import android.widget.ImageView;
 
 import java.io.InputStream;
 
+/**
+ * Clase que se encarga de descargar mediante un AsyncTask la imagenes que
+ * se reciben como parametro
+ */
 public class DescargaDeImagen extends AsyncTask<String, Void, Bitmap> {
     @SuppressLint("StaticFieldLeak")
     private ImageView bmImage;

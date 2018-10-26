@@ -2,6 +2,9 @@ package prueba.com.pruebatoolbox;
 
 import java.util.ArrayList;
 
+/**
+ * Clase de modelado de datos
+ */
 public class Carousel {
 
     private String title;

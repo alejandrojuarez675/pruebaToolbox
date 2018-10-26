@@ -6,6 +6,9 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+/**
+ * Clase destinada a alojar interpretadores de consultas
+ */
 public class InterpretadorConsultaApi {
 
     /**

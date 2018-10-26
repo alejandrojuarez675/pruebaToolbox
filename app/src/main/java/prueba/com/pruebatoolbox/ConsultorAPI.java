@@ -4,6 +4,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Clase destinada a comunicarse con diferentes APIs y realizarles consultas
+ */
 public class ConsultorAPI {
 
     /**

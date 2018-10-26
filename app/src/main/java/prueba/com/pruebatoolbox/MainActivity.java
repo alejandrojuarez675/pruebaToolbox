@@ -47,6 +47,11 @@ public class MainActivity extends AppCompatActivity{
         registerReceiver(recibidor, filtro);
     }
 
+    /**
+     * Metodo encargado de configurar el reproductor de video
+     *
+     * @param urlDelVideo url del video a reproducir
+     */
     void reproducirVideo(String urlDelVideo){
         Uri uri = Uri.parse(urlDelVideo);
         vv_video.setVisibility(View.VISIBLE);
@@ -70,6 +75,9 @@ public class MainActivity extends AppCompatActivity{
         });
     }
 
+    /**
+     * Clase que recibe el intent cuando se presiona una imagen
+     */
     private class SolicitudDeReproducir extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
