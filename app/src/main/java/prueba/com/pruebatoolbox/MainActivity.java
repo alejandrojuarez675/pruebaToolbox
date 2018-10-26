@@ -16,14 +16,14 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity{
 
-    private ArrayList<Carousel> listaCaroucel;
     private VideoView vv_video;
     private ProgressBar pb_barra;
-    private RecyclerView rv_recycler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,100 +32,19 @@ public class MainActivity extends AppCompatActivity{
 
         vv_video = findViewById(R.id.vv_video);
         pb_barra = findViewById(R.id.pb_barra);
-        rv_recycler = findViewById(R.id.rv_lista_main);
+        RecyclerView rv_recycler = findViewById(R.id.rv_lista_main);
         rv_recycler.setLayoutManager(new LinearLayoutManager(
                 this, LinearLayoutManager.VERTICAL,false));
-        listaCaroucel = new ArrayList<>();
+
+        JSONArray jsonArray = ConsultorAPI.obtenerDatos();
+        ArrayList<Carousel> listaCaroucel = InterpretadorConsultaApi.jsonToListaCarouseles(jsonArray);
+
+        AdaptadorRecycler adaptadorRecycler = new AdaptadorRecycler(listaCaroucel);
+        rv_recycler.setAdapter(adaptadorRecycler);
 
         IntentFilter filtro = new IntentFilter("com.pruebaToolbox.video");
         BroadcastReceiver recibidor = new SolicitudDeReproducir();
         registerReceiver(recibidor, filtro);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        cargarDatos();
-
-        AdaptadorRecycler adaptadorRecycler = new AdaptadorRecycler(listaCaroucel);
-        rv_recycler.setAdapter(adaptadorRecycler);
-    }
-
-    private void cargarDatos(){
-        listaCaroucel.clear();
-
-        listaCaroucel.add(new Carousel("Carousel Thumb", "thumb"));
-        listaCaroucel.get(0).addItem(
-                new Item("La playa",
-                        "http://placeimg.com/320/480/any",
-                        "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
-        listaCaroucel.get(0).addItem(
-                new Item("Peligro en Bangkok",
-                        "http://placeimg.com/320/480/any",
-                        "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
-        listaCaroucel.get(0).addItem(
-                new Item("Todas contra John",
-                        "http://placeimg.com/320/480/any",
-                        "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
-        listaCaroucel.get(0).addItem(
-                new Item("Quisiera ser millonario",
-                        "http://placeimg.com/320/480/any",
-                        "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
-
-        listaCaroucel.add(new Carousel("Carousel Poster", "poster"));
-        listaCaroucel.get(1).addItem(
-                new Item("La playa",
-                        "http://placeimg.com/640/480/any",
-                        "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
-        listaCaroucel.get(1).addItem(
-                new Item("Peligro en Bangkok",
-                        "http://placeimg.com/640/480/any",
-                        "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
-        listaCaroucel.get(1).addItem(
-                new Item("Todas contra John",
-                        "http://placeimg.com/640/480/any",
-                        "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
-        listaCaroucel.get(1).addItem(
-                new Item("Quisiera ser millonario",
-                        "http://placeimg.com/640/480/any",
-                        "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
-
-        listaCaroucel.add(new Carousel("Carousel Thumb", "thumb"));
-        listaCaroucel.get(2).addItem(
-                new Item("La playa",
-                        "http://placeimg.com/320/480/any",
-                        "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
-        listaCaroucel.get(2).addItem(
-                new Item("Peligro en Bangkok",
-                        "http://placeimg.com/320/480/any",
-                        "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
-        listaCaroucel.get(2).addItem(
-                new Item("Todas contra John",
-                        "http://placeimg.com/320/480/any",
-                        "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
-        listaCaroucel.get(2).addItem(
-                new Item("Quisiera ser millonario",
-                        "http://placeimg.com/320/480/any",
-                        ""));
-
-        listaCaroucel.add(new Carousel("Carousel Poster", "poster"));
-        listaCaroucel.get(3).addItem(
-                new Item("La playa",
-                        "http://placeimg.com/640/480/any",
-                        "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
-        listaCaroucel.get(3).addItem(
-                new Item("Peligro en Bangkok",
-                        "http://placeimg.com/640/480/any",
-                        "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
-        listaCaroucel.get(3).addItem(
-                new Item("Todas contra John",
-                        "http://placeimg.com/640/480/any",
-                        "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"));
-        listaCaroucel.get(3).addItem(
-                new Item("Quisiera ser millonario",
-                        "http://placeimg.com/640/480/any",
-                        ""));
     }
 
     void reproducirVideo(String urlDelVideo){
