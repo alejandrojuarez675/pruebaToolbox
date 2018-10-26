@@ -26,7 +26,7 @@ public class ConsultorAPI {
         try {
             item2.put("title", "Peligro En Bangkok");
             item2.put("url", "http://placeimg.com/640/480/any");
-            item2.put("video", "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4");
+            item2.put("video", "");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -34,7 +34,7 @@ public class ConsultorAPI {
         try {
             item3.put("title", "Todas Contra John");
             item3.put("url", "http://placeimg.com/640/480/any");
-            item3.put("video", "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4");
+            item3.put("video", "");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -60,7 +60,7 @@ public class ConsultorAPI {
         try {
             item1.put("title", "La Playa");
             item1.put("url", "http://placeimg.com/320/480/any");
-            item1.put("video", "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4");
+            item1.put("video", "");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -76,7 +76,7 @@ public class ConsultorAPI {
         try {
             item3.put("title", "Todas Contra John");
             item3.put("url", "http://placeimg.com/320/480/any");
-            item3.put("video", "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4");
+            item3.put("video", "");
         } catch (JSONException e) {
             e.printStackTrace();
         }
