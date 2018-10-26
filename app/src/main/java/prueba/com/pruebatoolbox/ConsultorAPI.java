@@ -13,10 +13,11 @@ public class ConsultorAPI {
      */
     public static JSONArray obtenerDatos() {
 
+        // Items thumb
         JSONObject item1 = new JSONObject();
         try {
             item1.put("title", "La Playa");
-            item1.put("url", "http://placeimg.com/320/480/any");
+            item1.put("url", "http://placeimg.com/640/480/any");
             item1.put("video", "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4");
         } catch (JSONException e) {
             e.printStackTrace();
@@ -24,7 +25,7 @@ public class ConsultorAPI {
         JSONObject item2 = new JSONObject();
         try {
             item2.put("title", "Peligro En Bangkok");
-            item2.put("url", "http://placeimg.com/320/480/any");
+            item2.put("url", "http://placeimg.com/640/480/any");
             item2.put("video", "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4");
         } catch (JSONException e) {
             e.printStackTrace();
@@ -32,12 +33,54 @@ public class ConsultorAPI {
         JSONObject item3 = new JSONObject();
         try {
             item3.put("title", "Todas Contra John");
-            item3.put("url", "http://placeimg.com/320/480/any");
+            item3.put("url", "http://placeimg.com/640/480/any");
             item3.put("video", "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4");
         } catch (JSONException e) {
             e.printStackTrace();
         }
         JSONObject item4 = new JSONObject();
+        try {
+            item4.put("title", "Quisiera Ser Millonario");
+            item4.put("url", "http://placeimg.com/640/480/any");
+            item4.put("video", "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+        JSONArray listaItemsThumb = new JSONArray();
+        listaItemsThumb.put(item1);
+        listaItemsThumb.put(item2);
+        listaItemsThumb.put(item3);
+        listaItemsThumb.put(item4);
+
+
+        // Items posters
+        item1 = new JSONObject();
+        try {
+            item1.put("title", "La Playa");
+            item1.put("url", "http://placeimg.com/320/480/any");
+            item1.put("video", "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        item2 = new JSONObject();
+        try {
+            item2.put("title", "Peligro En Bangkok");
+            item2.put("url", "http://placeimg.com/320/480/any");
+            item2.put("video", "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        item3 = new JSONObject();
+        try {
+            item3.put("title", "Todas Contra John");
+            item3.put("url", "http://placeimg.com/320/480/any");
+            item3.put("video", "http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        item4 = new JSONObject();
         try {
             item4.put("title", "Quisiera Ser Millonario");
             item4.put("url", "http://placeimg.com/320/480/any");
@@ -47,18 +90,18 @@ public class ConsultorAPI {
         }
 
 
-        JSONArray listaItems = new JSONArray();
-        listaItems.put(item1);
-        listaItems.put(item2);
-        listaItems.put(item3);
-        listaItems.put(item4);
+        JSONArray listaItemsPoster = new JSONArray();
+        listaItemsPoster.put(item1);
+        listaItemsPoster.put(item2);
+        listaItemsPoster.put(item3);
+        listaItemsPoster.put(item4);
 
 
         JSONObject carouselThumb = new JSONObject();
         try {
             carouselThumb.put("title","Carousel Thumb");
             carouselThumb.put("type","thumb");
-            carouselThumb.put("items",listaItems);
+            carouselThumb.put("items",listaItemsThumb);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -66,7 +109,7 @@ public class ConsultorAPI {
         try {
             carouselPosters.put("title","Carousel Poster");
             carouselPosters.put("type","poster");
-            carouselPosters.put("items",listaItems);
+            carouselPosters.put("items",listaItemsPoster);
         } catch (JSONException e) {
             e.printStackTrace();
         }
